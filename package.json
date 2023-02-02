@@ -1,0 +1,14 @@
+{
+  "name": "mensajesnotificacion-app",
+  "version": "1.0.0",
+  "description": "Envio de mensaje en cadena",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "push.js": "^1.0.12"
+  }
+}

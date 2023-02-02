@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexion socket.io</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <!-- <script src="node_modules/push.js/bin/push.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js" integrity="sha512-eiqtDDb4GUVCSqOSOTz/s/eiU4B31GrdSb17aPAA4Lv/Cjc8o+hnDvuNkgXhSI5yHuDvYkuojMaQmrB5JB31XQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="./push.fcm.min.js"></script> -->
+    <script>
+
+        Push.create('Hello World!')
+
+        var socket = io();
+
+
+
+        socket.emit('client_message', "Hola server");
+
+        socket.on('saludo_usuario', (mensaje) => {
+            document.getElementById('mensaje_server').innerHTML = mensaje
+        });
+
+
+        socket.on('chat_message_respuesta', async (mensaje) => {
+            console.log(mensaje)
+            /*  Push.create("Hello world!", {
+                 body: "How's it hangin'?",
+                 icon: '/icon.png',
+                 timeout: 4000,
+                 onClick: function () {
+                     window.focus();
+                     this.close();
+                 }
+             }); */
+            /* try {
+                const permission = await Notification.requestPermission();
+                console.log(permission);
+                const options = {
+                    body: mensaje,
+                };
+                const n = new Notification("title", options);
+            } catch (error) {
+                console.log(error);
+            } */
+            /* document.getElementById('mensajes_chat').innerHTML += mensaje + "<br>" */
+        });
+
+        function chatMensaje() {
+
+            const mensaje = document.getElementById('mensaje').value
+            socket.emit('chat message', { mensaje: mensaje });
+
+        }
+
+
+
+
+    </script>
+</head>
+
+<body>
+    Servidor dice:<p id="mensaje_server"></p>
+    <input type="text" name="mensaje" id="mensaje">
+    <button id="btnMensaje" onclick="chatMensaje()">Enviar</button>
+    <fieldset>
+        Mensajes
+        <div id="mensajes_chat">
+
+        </div>
+    </fieldset>
+</body>
+
+</html>

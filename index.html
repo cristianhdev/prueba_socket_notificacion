@@ -8,7 +8,7 @@
     <title>Conexion socket.io</title>
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <!-- <script src="node_modules/push.js/bin/push.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js" integrity="sha512-eiqtDDb4GUVCSqOSOTz/s/eiU4B31GrdSb17aPAA4Lv/Cjc8o+hnDvuNkgXhSI5yHuDvYkuojMaQmrB5JB31XQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js" integrity="sha512-eiqtDDb4GUVCSqOSOTz/s/eiU4B31GrdSb17aPAA4Lv/Cjc8o+hnDvuNkgXhSI5yHuDvYkuojMaQmrB5JB31XQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <!-- <script src="./push.fcm.min.js"></script> -->
     <script>
 
@@ -36,7 +36,7 @@
                      this.close();
                  }
              }); */
-            /* try {
+            try {
                 const permission = await Notification.requestPermission();
                 console.log(permission);
                 const options = {
@@ -45,7 +45,7 @@
                 const n = new Notification("title", options);
             } catch (error) {
                 console.log(error);
-            } */
+            }
             /* document.getElementById('mensajes_chat').innerHTML += mensaje + "<br>" */
         });
 
